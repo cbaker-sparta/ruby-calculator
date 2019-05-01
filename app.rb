@@ -3,7 +3,7 @@ calcultor_type = gets.chomp("").downcase
 
 # Basic Calculator
 
-if calcultor_type == "b"
+def basic_calculator
   puts "Please enter first number:"
   num1 = gets.chomp("")
   puts "Please enter operator (+, -, *, /):"
@@ -17,12 +17,16 @@ if calcultor_type == "b"
   else
     sum = eval"#{num1} #{operator} #{num2}"
   end
-  puts sum.round(2)
+  puts "Answer i: #{sum.round(2)}"
+end
+
+if calcultor_type == "b"
+  basic_calculator
 end
 
 # Advanced Calculator
 
-if calcultor_type == "a"
+def advanced_calcuator
   puts "Please enter an operation: (P)ower or (S)quare"
   operator = gets.chomp("").downcase
   puts "Please enter first number:"
@@ -35,12 +39,15 @@ if calcultor_type == "a"
   if operator == "s"
     sum = Math.sqrt(num1)
   end
-  puts sum.round(5)
+  puts "Answer is: #{sum.round(5)}"
 end
 
+if calcultor_type == "a"
+  advanced_calculator
+end
 # BMI Calculator
 
-if calcultor_type == "bmi"
+def bmi_calculator
   puts "(M)etric or (I)mperial:"
   unit = gets.chomp("")
   if unit == "m"
@@ -59,12 +66,15 @@ if calcultor_type == "bmi"
     height = height * height
     sum = ((weight / height) * 703).round(4)
   end
-  puts sum
+  puts "Your BMI is: #{sum}"
 end
 
+if calcultor_type == "bmi"
+  bmi_calculator
+end
 # Trip Calculator
 
-if calcultor_type == "t"
+def trip_calculator
   puts "Please enter your journey distance in Miles:"
   distance = gets.chomp("").to_f
   puts "Please enter your vehicle's fuel efficiency in MPG:"
@@ -84,4 +94,8 @@ if calcultor_type == "t"
     end
   end
   puts "Your trip with take #{trip_time} hours and cost £#{cost.round(2)}"
+end
+
+if calcultor_type == "t"
+  trip_calculator
 end
