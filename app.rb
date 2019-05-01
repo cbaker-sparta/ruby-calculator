@@ -1,5 +1,19 @@
-puts "Hello! Which calcultor would you like? (B)asic, (A)dvanced, BMI or (T)rip?"
-calcultor_type = gets.chomp("").downcase
+# Global Calculator Function
+
+def calc
+puts "Hello! Which calculator would you like? (B)asic, (A)dvanced, BMI or (T)rip?"
+calculator_type = gets.chomp("").downcase
+  if calculator_type == "b"
+  basic_calculator
+  elsif calculator_type == "a"
+  advanced_calculator
+  elsif calculator_type == "bmi"
+  bmi_calculator
+  elsif calculator_type == "t"
+  trip_calculator
+  end
+end
+
 
 # Basic Calculator
 
@@ -17,16 +31,13 @@ def basic_calculator
   else
     sum = eval"#{num1} #{operator} #{num2}"
   end
-  puts "Answer i: #{sum.round(2)}"
+  puts "Answer is: #{sum.round(2)}"
 end
 
-if calcultor_type == "b"
-  basic_calculator
-end
 
 # Advanced Calculator
 
-def advanced_calcuator
+def advanced_calculator
   puts "Please enter an operation: (P)ower or (S)quare"
   operator = gets.chomp("").downcase
   puts "Please enter first number:"
@@ -42,9 +53,7 @@ def advanced_calcuator
   puts "Answer is: #{sum.round(5)}"
 end
 
-if calcultor_type == "a"
-  advanced_calculator
-end
+
 # BMI Calculator
 
 def bmi_calculator
@@ -69,9 +78,7 @@ def bmi_calculator
   puts "Your BMI is: #{sum}"
 end
 
-if calcultor_type == "bmi"
-  bmi_calculator
-end
+
 # Trip Calculator
 
 def trip_calculator
@@ -96,6 +103,4 @@ def trip_calculator
   puts "Your trip with take #{trip_time} hours and cost £#{cost.round(2)}"
 end
 
-if calcultor_type == "t"
-  trip_calculator
-end
+calc
